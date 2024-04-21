@@ -1,0 +1,8 @@
+@startuml customer_making_a_purchase
+title Customer making a purchase
+!include models!customer
+
+
+customer -> Cart: Add item
+
+@enduml

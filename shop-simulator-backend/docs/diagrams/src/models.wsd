@@ -1,0 +1,77 @@
+@startuml models
+
+class Item {
+    -name: String
+    -price: float
+}
+
+class Market {
+    -items : List<Item>
+    +get_items() : List<Item>
+    +get_price(name: String) : float
+    +buy(name: String, quantity: float, money: float): bool 
+}
+
+Class Recipe{
+    -name : String
+    -ingredients : Map<String, float>
+    -time : float
+    -skill_level : float
+    +make(name: String, quantity: float)
+}
+
+class Stock{
+    -name : String
+    -quantity : float
+    +add_to_stock(name: String, quantity: float)
+    +remove_from_stock(name: String, quantity: float)
+}
+
+class Inventory{
+    -stock : Map<String, Stock>
+    +add_item(name: String, quantity: float)
+    +use_item(name: String, quantity: float)
+}
+
+class Employee{
+    -role : String
+    -wage : float
+    -skill_level : float
+}
+
+class Customer{
+    -items : List<String, bool>
+    -wait_time: float
+    -order_time: float
+    -serve_time: float
+    +order()
+    +make_payment()
+    +recive_order()
+    +provide_review()
+}
+
+class Manager{
+    +manage()
+}
+
+class Shop{
+    -market : Market
+    -inventory : Inventory
+    -employees : List<Employee>
+    -recipes : List<Recipe>
+    -customers : List<Customer>
+    -manager : Manager
+    -cash : float
+    +open()
+    +close()
+    +add_employee()
+    +remove_employee()
+    +add_recipe()
+    +remove_recipe()
+    +enter()
+    +exit()
+    +recieve_payment()
+    +serve_order()
+    +take_order()
+}
+@enduml
